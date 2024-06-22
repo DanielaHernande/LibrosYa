@@ -1,5 +1,7 @@
 package com.riwi.LibrosYa.api.dto.response;
 
+import java.util.List;
+
 import com.riwi.LibrosYa.utils.enums.Role;
 
 import lombok.AllArgsConstructor;
@@ -24,4 +26,8 @@ public class UserResponse {
     private String fullName;
 
     private Role role;
+
+    private List<LoanToUserBasicResponse> loans;
+
+    private List<ReservationToUserBasicResponse> reservations;
 }

@@ -22,8 +22,8 @@ public class LoanResponse {
     private boolean status;
 
     // User
-    private Long userId;
+    private UserBasicResponse userId;
 
     // Book
-    private Long bookId;
+    private BookBasicResponse bookId;
 }

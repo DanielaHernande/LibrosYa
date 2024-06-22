@@ -1,6 +1,6 @@
 package com.riwi.LibrosYa.api.dto.response;
 
-import java.time.LocalDate;
+import com.riwi.LibrosYa.utils.enums.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReservationResponse {
-
+public class UserBasicResponse {
+    
     private Long id;
 
-    private LocalDate reservationDate;
+    private String userName;
 
-    private boolean status;
+    private String password;
 
-    // User
-    private UserBasicResponse userId;
+    private String email;
 
-    // Libro
-    private BookBasicResponse bookId;
+    private String fullName;
+
+    private Role role;
 }
