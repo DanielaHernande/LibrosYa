@@ -1,7 +1,5 @@
 package com.riwi.LibrosYa.api.dto.response;
 
-import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,17 +9,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReservationResponse {
-
+public class BookBasicResponse {
+    
     private Long id;
 
-    private LocalDate reservationDate;
+    private String title;
 
-    private boolean status;
+    private String author;
 
-    // User
-    private UserBasicResponse userId;
+    private int publicationYear;
 
-    // Libro
-    private BookBasicResponse bookId;
+    private String gerent;
+
+    private String isbn;
 }

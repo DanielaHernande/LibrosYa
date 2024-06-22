@@ -20,5 +20,5 @@ public class ReservationBasciResponse {
     private boolean status;
 
     // User
-    private Long userId;
+    private UserBasicResponse userId;
 }

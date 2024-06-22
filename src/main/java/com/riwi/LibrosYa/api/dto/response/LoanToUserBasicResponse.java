@@ -11,17 +11,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReservationResponse {
-
+public class LoanToUserBasicResponse {
+    
     private Long id;
 
-    private LocalDate reservationDate;
+    private LocalDate loanDate;
+
+    private LocalDate returnDate;
 
     private boolean status;
-
-    // User
-    private UserBasicResponse userId;
-
-    // Libro
-    private BookBasicResponse bookId;
 }
