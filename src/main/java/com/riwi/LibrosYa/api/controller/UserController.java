@@ -19,10 +19,12 @@ import com.riwi.LibrosYa.api.dto.response.UserResponse;
 import com.riwi.LibrosYa.infrastructure.abstrac_services.IUserServices;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
+@Tag(name = "Users")
 @RequestMapping(path = "/users")
 public class UserController {
 
@@ -90,5 +92,4 @@ public class UserController {
 
         return  ResponseEntity.noContent().build();
     }
-
 }
