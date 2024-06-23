@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@Tag(name = "Books")
+@Tag(name = "Reservations")
 @RequestMapping(path = "/reservation")
 public class ReservationController {
     
