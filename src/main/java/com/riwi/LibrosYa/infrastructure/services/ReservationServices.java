@@ -14,9 +14,9 @@ import com.riwi.LibrosYa.domain.repositories.BookRepository;
 import com.riwi.LibrosYa.domain.repositories.ReservationRepository;
 import com.riwi.LibrosYa.domain.repositories.UserRepository;
 import com.riwi.LibrosYa.infrastructure.abstrac_services.IReservationServices;
-import com.riwi.LibrosYa.infrastructure.helpers.mappers.BookMapper;
+//import com.riwi.LibrosYa.infrastructure.helpers.mappers.BookMapper;
 import com.riwi.LibrosYa.infrastructure.helpers.mappers.ReservationMapper;
-import com.riwi.LibrosYa.infrastructure.helpers.mappers.UserMapper;
+//import com.riwi.LibrosYa.infrastructure.helpers.mappers.UserMapper;
 import com.riwi.LibrosYa.utils.exceptions.BadRequestException;
 
 import lombok.AllArgsConstructor;
@@ -36,17 +36,9 @@ public class ReservationServices implements IReservationServices{
     @Autowired
     private final UserRepository userRepository;
 
-    // Inyeccion de dependencia Mapper
-    @Autowired
-    private final UserMapper userMapper;
-
     // Inyeccion de dependencias book
     @Autowired
     private final BookRepository bookRepository;
-
-    // Inyeccion de dependencia Mapper
-    @Autowired
-    private final BookMapper bookMapper;
     
     // Obtener solo uno 
     @Override
@@ -111,20 +103,22 @@ public class ReservationServices implements IReservationServices{
         // Actualizar los campos de la tarea con los datos del DTO
         reservation.setBookId(book);
         //reservation.setReservationDate(request.getReservationDate());
+        reservation.setStatus(request.isStatus());
+        reservation.setUserId(userEntity);
 
-
-
+        // Guardar los cambios en el repositorio de asignaciones
+        return this.reservationMapper.entityToReservationResponse(this.reservationRepository.save(reservation));
     }
 
     // Eliminar
     @Override
     public void delete(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+
+        this.reservationRepository.delete(this.findId(id));
     }
 
     // Metodos privados
-    // Buscar usuario por ID y lanzar excepción si no se encuentra
+    // Buscar reservation por ID y lanzar excepción si no se encuentra
     private Reservation findId(Long id) {
 
         return this.reservationRepository.findById(id)
