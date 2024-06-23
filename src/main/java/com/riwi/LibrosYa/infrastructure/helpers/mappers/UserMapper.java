@@ -3,7 +3,6 @@ package com.riwi.LibrosYa.infrastructure.helpers.mappers;
 import java.util.List;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
 import com.riwi.LibrosYa.api.dto.request.UserRequest;
@@ -16,9 +15,7 @@ public interface UserMapper {
     UserResponse toUserResponse(UserEntity userEntity);
 
     // Para ignorar
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "loans", ignore = true)
-    @Mapping(target = "reservations", ignore = true)
+
 
     UserEntity toUserEntity(UserRequest userRequest);
 

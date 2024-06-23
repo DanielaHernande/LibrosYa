@@ -2,25 +2,25 @@ package com.riwi.LibrosYa.infrastructure.helpers.mappers;
 
 import java.util.List;
 
-import com.riwi.LibrosYa.api.dto.request.LoanRequest;
-import com.riwi.LibrosYa.api.dto.response.LoanResponse;
-import com.riwi.LibrosYa.domain.entities.Loan;
-import com.riwi.LibrosYa.domain.entities.UserEntity;
-import com.riwi.LibrosYa.domain.entities.Book;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.Named;
 
+import com.riwi.LibrosYa.api.dto.request.ReservationRequest;
+import com.riwi.LibrosYa.api.dto.response.ReservationResponse;
+import com.riwi.LibrosYa.domain.entities.Book;
+import com.riwi.LibrosYa.domain.entities.Reservation;
+import com.riwi.LibrosYa.domain.entities.UserEntity;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface LoanMapper {
+public interface ReservationMapper {
 
     @Mapping(target = "userId", source = "userId", qualifiedByName = "mapUserIdToUserEntity")
     @Mapping(target = "bookId", source = "bookId", qualifiedByName = "mapBookIdToBook")
     @Mapping(target = "id", ignore = true) // Ignorar id si es generado automáticamente
-    @Mapping(target = "loanDate", ignore = true) // Ignorar loanDate, se establece automáticamente
-    @Mapping(target = "returnDate", ignore = true) // Ignorar returnDate, se establece automáticamente
-    Loan loanReqToEntity(LoanRequest loanRequest);
+    
+    Reservation reservationReqToEntity(ReservationRequest reservationReq);
 
     @Named("mapUserIdToUserEntity")
     default UserEntity mapUserIdToUserEntity(Long userId) {
@@ -36,7 +36,7 @@ public interface LoanMapper {
         return book;
     }
 
-    LoanResponse entityToLoanResponse(Loan loan);
+    ReservationResponse entityToReservationResponse(Reservation reservation);
 
-    List<LoanResponse> toListLoanResp(List<Loan> loans);
+    List<ReservationResponse> toListReservationResp(List<Reservation> reservations);
 }
