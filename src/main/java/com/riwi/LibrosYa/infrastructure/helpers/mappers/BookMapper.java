@@ -16,9 +16,6 @@ public interface BookMapper {
     Book toBookEntity(BookRequest bookRequest);
     
     // Para ignorar
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "loans", ignore = true)
-    @Mapping(target = "reservations", ignore = true)
     BookResponse toBookResponse(Book book);
 
     List<BookResponse> BookListToResponseList(List<Book> bookRequests); 

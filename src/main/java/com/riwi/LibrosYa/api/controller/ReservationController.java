@@ -69,7 +69,7 @@ public class ReservationController {
     }
 
     // Actualizar
-    @PutMapping(path = "/reservation_id")
+    @PutMapping(path = "/{reservation_id}")
     @Operation(
         summary = "Update a reservation", 
         description = "Update a reservation's information."
@@ -82,7 +82,7 @@ public class ReservationController {
     }
 
     // Eliminar
-    @DeleteMapping(path = "/reservation_id")
+    @DeleteMapping(path = "/{reservation_id}")
     @Operation(
         summary = "Delete reservation",
         description = "Delete a reservation by id."
