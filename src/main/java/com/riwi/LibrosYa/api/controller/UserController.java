@@ -68,7 +68,7 @@ public class UserController {
     }
 
     // Actualizar
-    @PutMapping(path = "/user_id")
+    @PutMapping(path = "/{user_id}")
     @Operation(
         summary = "Update a user", 
         description = "Update a user's information."
@@ -81,7 +81,7 @@ public class UserController {
     }
 
     // Eliminar
-    @DeleteMapping(path = "/user_id")
+    @DeleteMapping(path = "/{user_id}")
     @Operation(
         summary = "Delete User",
         description = "Delete a user by id."

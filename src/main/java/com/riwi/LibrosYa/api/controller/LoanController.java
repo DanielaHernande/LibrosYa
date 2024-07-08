@@ -69,7 +69,7 @@ public class LoanController {
     }
 
     // Actualizar
-    @PutMapping(path = "/loan_id")
+    @PutMapping(path = "/{loan_id}")
     @Operation(
         summary = "Update a loan", 
         description = "Update a loan's information."
@@ -82,7 +82,7 @@ public class LoanController {
     }
 
     // Eliminar
-    @DeleteMapping(path = "/loan_id")
+    @DeleteMapping(path = "/{loan_id}")
     @Operation(
         summary = "Delete loan",
         description = "Delete a loan by id."

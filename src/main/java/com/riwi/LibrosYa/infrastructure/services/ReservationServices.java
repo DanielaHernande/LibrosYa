@@ -53,7 +53,7 @@ public class ReservationServices implements IReservationServices{
 
         if (page < 0) page = 0;
 
-        PageRequest pagination = PageRequest.of(page - 1, size);
+        PageRequest pagination = PageRequest.of(page, size);
 
         return this.reservationRepository.findAll(pagination)
                 .map(reservation -> this.reservationMapper.entityToReservationResponse(reservation));
@@ -122,7 +122,7 @@ public class ReservationServices implements IReservationServices{
     private Reservation findId(Long id) {
 
         return this.reservationRepository.findById(id)
-                .orElseThrow(() -> new BadRequestException("No hay un libro con ese id"));
+                .orElseThrow(() -> new BadRequestException("No hay una reservation con ese id"));
     }
     
 }

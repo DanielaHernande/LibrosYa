@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
 
 public class ReservationUpdateRequest {
     
@@ -17,19 +17,11 @@ public class ReservationUpdateRequest {
 
     // User
     @NotNull(message = "EL id del usuario es requerido")
-    @Size(
-
-        min = 1,
-        message = "El id usuario debe de tener minimo un numero"
-    )
+    @Positive(message = "El id del usuario debe ser un número positivo")
     private Long userId;
 
     // Libro
     @NotNull(message = "EL id del libro es requerido")
-    @Size(
-
-        min = 1,
-        message = "El id del libro debe de tener minimo un numero"
-    )
+    @Positive(message = "El id del usuario debe ser un número positivo")
     private Long bookId;
 }

@@ -55,7 +55,7 @@ public class LoanSercices implements ILoanServices{
         if (page < 0) page = 0;
 
         // Configurar la paginación para la consulta
-        PageRequest pagination = PageRequest.of(page - 1, size);
+        PageRequest pagination = PageRequest.of(page, size);
 
         // Obtener todas las loan con paginación y convertirlas a DTOs
         return this.loanRepository.findAll(pagination)

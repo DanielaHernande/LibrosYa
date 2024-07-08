@@ -69,7 +69,7 @@ public class BookController {
     }
 
     // Actualizar
-    @PutMapping(path = "/book_id")
+    @PutMapping(path = "/{book_id}")
     @Operation(
         summary = "Update a book", 
         description = "Update a book's information."
@@ -82,14 +82,14 @@ public class BookController {
     }
 
     // Eliminar
-    @DeleteMapping(path = "/book_id")
+    @DeleteMapping(path = "/{book_id}")
     @Operation(
         summary = "Delete book",
         description = "Delete a book by id."
     )
-    public ResponseEntity<Void> delete(@PathVariable Long user_id) {
+    public ResponseEntity<Void> delete(@PathVariable Long book_id) {
 
-        this.bookServices.delete(user_id);
+        this.bookServices.delete(book_id);
 
         return  ResponseEntity.noContent().build();
     }
